@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="assets/img/Logos/LogoProjeto.png" type="image/x-icon">
+    <title>Nowl</title>
+
+    <!-- <link rel="stylesheet" href="css/global.css"> -->
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/index.js"></script>
+    
+    <link rel="stylesheet" href="css/indexResponsividade.css">
+
+    <!-- -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+    <!-- Sweet alert-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('8W_PzK0CVQE_wrObb');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function enviar() {
+            document.getElementById('contact-form').addEventListener('submit', function enviar(event) {
+                event.preventDefault();
+                // these IDs from the previous steps
+                emailjs.sendForm('nowl_sptech_', 'template_contato', this)
+                    .then(function enviar() {
+                        console.log('SUCCESS!');
+                        swal("Parábens","Mensagem enviado com sucesso,entraremos em contato","sucess")
+                    }, function enviar(error) {
+                        console.log('FAILED...', error);
+                        swal("Warning","Aconteceu algum erro de validação da nossa parte, iremos contator o mais rápido possivel","Error")
+                    });
+            });
+        }
+    </script>
+</head>
+
+<body>
+    
+    <!-- nav mobile -->
+    <div class="navMobileWrapper">
+        <div style="position: relative;">
+            <button id="menuSwitch">&#9776;</button>
+                <div id="navMobile" >
+                    <img src="assets/img/Logos/nowlLogoPreta.svg" alt="" >
+                    <a href="#header" class="navLinkMobile">Início</a>
+                    <a href="#quem-somos" class="navLinkMobile">Quem somos</a>
+                    <a href="#projetos" class="navLinkMobile">Soluções</a>
+                    <a href="#fale-conosco" class="navLinkMobile">Contato</a>
+                </div>                
+        </div>
+    </div>
+
+    <section id="header">
+        <header>
+            <nav id="navbar">
+
+                <div class="navWrapper" id="navWrapper">
+                    <a href="#header" class="navLink">Início</a>
+                    <a href="#quem-somos" class="navLink">Quem somos</a>
+                    <img src="assets/img/Logos/nowLogo.svg" alt="" id="logo">
+                    <a href="#projetos" class="navLink">Soluções</a>
+                    <a href="#fale-conosco" class="navLink">Contato</a>
+                </div>
+
+                <div id="toggle_nav_button" onclick="hide_navbar()">
+                    <img src="assets/img/Icone/arrow.svg" alt="" id="arrow">
+                </div>
+            </nav>
+            
+            <div class="headerUpper" id="headerUpper">
+                <div class="leftInfo">
+                    <h1 class="title">DADOS CONFIÁVEIS</h1>
+                    <div class="textWrapper">
+                        <h4>
+                            <highlight>Dados confiáveis</highlight> são o alicerce da tomada de decisão inteligente. Oferecemos soluções para o monitoramento de dados que garantem a confiabilidade e a integridade dos dados. 
+                        </h4>
+                    </div>
+                    <div class="btnHeaderWrapper">
+                        <img src="assets/img/setaBaixo.svg" alt="" class="setaBaixo">
+                        <a href="#quem-somos" id="btn-header">
+                            <button class="btn-header">Saiba mais!</button></a>
+                            <div class="scroll-sign" id="scrollSign">
+                                <img src="./assets/img/Icone/mouse.png" alt="Mouse sinalizador de scroll">
+                                <img src="./assets/img/Icone/seta.png" alt="Seta">
+                            </div>
+                    </div>
+                </div>
+
+                <img src="assets/img/notebookImage.svg" alt="" class="headerNotebook">
+                <a href="https://github.com/SPTECH-Nowl"><img src="assets/img/Icone/github.png" alt="" class="github-icon"></a>
+
+                <div class="rightInfo">
+                    <img class="headerCell" src="assets/img/headerCellphonesMobile.svg" alt="">
+                    
+                    <div class="rightInfoWrapper">
+                        <div class="textWrapper">
+                            <img src="assets/img/logomarca.svg" alt="">
+                           
+                            <h4>
+                                Nossas soluções ajudam a sua organização a obter inteligência de seus dados, gerando <highlight>insights valiosos</highlight> para melhorar sua tomada de decisão e reduzir custos.
+                            </h4>
+                        </div>
+                        <h1 class="title">INTELIGÊNCIA</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="headerBottom">
+                <h1>SOMOS LÍDERES EM SOLUÇÕES DE MONITORAMENTO</h1>
+
+                <h4>
+                    Somos uma empresa <highlight>líder em soluções</highlight> de monitoramento de dados através da tecnologia. Oferecemos uma gama de produtos e serviços feitos para os mais variados ramos de trabalho. Com nossas soluções ajudamos você com o <highlight>crescimento e segurança</highlight> do seu negócio!
+                </h4>
+            </div>
+
+        </header>
+    </section>
+
+    <section id="quem-somos">
+        <div class="quemSomosWrapper">
+            <div class="leftInfo">
+                <h1>quem somos</h1>
+
+                <div class="infoWrapper">
+                    <p class="text">A Nowl é a empresa líder em monitoramento de desempenho dos
+                        computadores com opções de controle remoto deles
+                        em sistemas. Fornecemos <highlight>informações precisas</highlight> e em tempo real
+                        sobre as condições e perfomance da sua maquina. 
+                    </p>
+
+                    <img src="assets/img/divisória.svg" alt="">
+
+                    <p class="text">Permitindo que você <highlight>verifique</highlight> quais aplicações
+                        estão abertas no momento e como sua maquina está perfomando com elas, com a finalidade de
+                        acompanhar se os computadores desempenham como esperado.
+                    </p>
+                </div>
+            </div>
+
+            <img class="quemCell" src="assets/img/quemSomosCellphones.png" alt="">
+        </div>
+    </section>
+
+    <section id="projetos">
+        <div class="background-projetos">
+            <div class="circle cobalto circle1"></div>
+            <div class="circle coral circle2"></div>
+            <div class="circle coral circle3"></div>
+            <div class="circle cobalto circle4"></div>
+            <div class="circle cobalto circle5"></div>
+        </div>
+        
+        <div class="projetosWrapper">
+            <div class="centerInfo">
+                <h1 class="h1_mobile">PROJETOS</h1>
+                <h1 class="h1_desktop">PROJETOS E SOLUÇÕES</h1>
+                <div class="ProjetosInfoWrapper">
+                    <div class="circle-coral">
+                        
+                    </div>
+                    <p class="text text-center">
+                         Nosso principal produto é o <highlight>Magister</highlight>, um sistema de monitoramento de hardware para instituições de ensino. Ele conta com controle de programas permitidos, sistema de strikes e outras funcionalidades. Se interessou pela solução? <highlight>Saiba mais abaixo!</highlight>
+                    </p><br>
+
+                    <div class="divisoriaWrapper">
+                        <img src="assets/img/divisória.svg" alt="" class="divisoria">
+                    </div>
+                    
+                    <div class="projetoPrincipal">
+                        <a href="login.html"><img src="assets/img/mockup-magister.png" alt=""></a>
+                    </div>
+
+                    <h4 class="subtitle">Outros projetos</h4>
+
+                    <div class="main-carousel">
+                        <div class="cell"><img src="assets/img/projetos/prot1 1.png"></div>
+                        <div class="cell"><img src="assets/img/projetos/prot2 1.png"></div>
+                        <div class="cell"><img src="assets/img/projetos/prot3 1.png"></div>
+                        <div class="cell"><img src="assets/img/projetos/morango.jpeg"></div>
+                        <div class="cell"><img src="assets/img/projetos/latech.jpeg"></div>
+                        <div class="cell"><img src="assets/img/projetos/leafSolutions.png"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <section id="fale-conosco">
+        <h1 class="titulo-section select-disable">Fale Conosco</h1>
+        <p>Se interessou por nosso serviços e deseja nos contatar para adquirir uma de nossas soluções ou deseja solicitar sua própria solução para negócio? Nos envie uma mensagem através do formulário abaixo!</p>
+        <form id="contact-form">
+            <div class="fale-conosco-inputs">
+                <div class="input-field">
+                    <span class="fale-conosco-span">Nome ou nome da empresa</span>
+                    <div class="flex-col">
+                        <input data-aos="fade-right" data-aos-duration="700" id="input_nome" placeholder="Empresa"
+                            required  onblur="validar_nome()" name="from_name">
+                        <span id="span_validar_nome"></span>
+                    </div>
+                </div>
+                <div class="input-field">
+                    <span class="fale-conosco-span">Assunto</span>
+                    <div class="flex-col">
+                        <input data-aos="fade-right" data-aos-duration="700" id="input_assunto" placeholder="Orçamento para um sistema" "
+                            required onblur="validar_assunto()" name="from_subject">
+                            <span id="span_validar_assunto"></span>
+                    </div>
+                </div>
+                <div class="input-field">
+                    <span class="fale-conosco-span">E-mail</span>
+                    <div class="flex-col">
+                        <input data-aos="fade-right" data-aos-duration="700" id="input_email" placeholder="contato@empresa.com" =
+                            required onblur="validar_email_contato()" name="from_email">
+                            <span id="span_validar_email_contato"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="fale-conosco-comunicado">
+                <div class="input-field">
+                    <span class="fale-conosco-span">Escreva uma mensagem</span>
+                    <textarea data-aos="fade-right" data-aos-duration="700" id="input_comunicado" cols="30" rows="10"
+                        placeholder="Descreva sua solicitação aqui!" required name="message"></textarea>
+                </div>
+
+                <input type="submit" class="btn-fale-conosco select-disable" value="Enviar" id="enviar" onclick="enviar()">
+            </div>
+        </form>
+    </section>
+    
+    
+    <footer>
+        <div class="container-footer">
+            <div class="row-footer">
+
+                <div class="subdiv-footer">
+                    <h4>Mídias Sociais</h4>
+                    <ul>
+                        <li><a href="#"><img src="assets/img/Icone/twitter.png" alt=""></a></li>
+                        <li><a href="https://github.com/SPTECH-Nowl/Site"><img src="assets/img/Icone/github.png" alt=""></a></li>
+                        <li><a href="#"><img src="assets/img/Icone/instagram.png" alt=""></a></li>
+                    </ul>
+                </div>
+
+                <div class="subdiv-footer">
+                    <h4>Projetos</h4>
+                    <ul>
+                        <li><a href="https://github.com/Improvment-Cocoa/site-cocoatechnology">Cocoa Technology</a></li>
+                        <li><a href="#">MoranTech</a></li>
+                        <li><a href="https://github.com/SafeLawn/Sprint">Safe Lawn</a></li>
+                        <li><a href="#">LaTech</a></li>
+                        <li><a href="https://github.com/GRUPO-8-Leaf-Solutions/Leaf-Solutions">Leaf Solutions</a></li>
+                        <li><a href="https://github.com/Projeto-Sprint-2/ParkAndGo.git">Park & Go</a></li>
+                    </ul>
+                </div>
+
+                <div class="subdiv-footer">
+                    <h4>Localização</h4>
+                    <ul>
+                        <li><a href="">(+55) 11 4002-8922</a></li>
+                        <li><a href="">Rua Haddock Lobo, 595 - Cerqueira César, São Paulo - SP, 01414-001</a></li>
+                    </ul>
+                </div>
+
+                <div class="subdiv-footer">
+                    <h4>Se inscreva!</h4>
+                    <div class="form-sub">
+                        <form>
+                            <input type="email" placeholder="Digite o seu e-mail" required>
+                            <button class="cadastrar">Cadastrar-se</button>
+                            <img src="assets/img/Logos/nowLogo.svg">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer> 
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+</html>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script type="text/javascript">
+    $('.main-carousel').flickity({
+        cellAlign: 'left',
+        wrapAround: true,
+        freeScroll: true
+    });
+</script>

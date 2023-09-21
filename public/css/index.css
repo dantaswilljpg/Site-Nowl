@@ -1,0 +1,933 @@
+/* Import Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raleway:wght@300;400;500;700&display=swap');
+
+
+:root {
+    --color-coral: #F05D5E;
+    --color-cobalto: #314CB6;
+    --color-white: #F5F5F5;
+    --color-preto: #0D0D0D;
+    --color-violeta: #9747FF;
+    --color-roxo: #6D499D;
+    --color-gray: #252525;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-padding-top: 7vh;
+    scroll-behavior: smooth;
+}
+
+.select-disable {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body {
+    font-family: "Raleway";
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #314cb6;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #F05D5E;
+    ;
+    border-radius: 5px;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+
+header {
+    position: relative;
+    background: radial-gradient(circle, rgba(83, 129, 219, 1) 0%, rgba(49, 76, 182, 1) 100%);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#navbar {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    padding: 3rem 0;
+    transition: .3s ease-in-out;
+    z-index: 1;
+}
+
+.navWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 4rem;
+    gap: 2rem;
+    transition: .3s ease-in-out;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.navWrapperAtivo {
+    background: rgba( 255, 255, 255, 0.55 );
+    backdrop-filter: blur( 8px );
+    -webkit-backdrop-filter: blur( 8px );
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.10),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.09), 
+    0px 6px 3px 0px rgba(0, 0, 0, 0.05), 
+    0px 10px 4px 0px rgba(0, 0, 0, 0.01), 
+    0px 15px 4px 0px rgba(0, 0, 0, 0.00);
+}
+
+.navbar-ativo {
+    height: 2rem !important;
+    gap: 1.2rem !important;
+}
+
+.navLink {
+    position: relative;
+    color: var(--color-white);
+    font-weight: 500;
+    transition: .3s ease-in;
+}
+
+
+
+.navLink::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 3px;
+    border-radius: 20px;
+    background-color: var(--color-coral);
+    transition: .3s ease-in-out;
+}
+
+.navLink:hover::after {
+    width: 100%;
+}
+
+.navLinkAtivo {
+    color: var(--color-preto) !important;
+    font-size: 1.2rem !important;
+}
+
+#logo {
+    width: 10rem;
+    transition: .3s ease-in-out;
+}
+
+#navbar a {
+    font-family: "Raleway";
+    text-decoration: none;
+    font-weight: se;
+    font-size: 1.3rem;
+    cursor: pointer;
+
+}
+
+#toggle_nav_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 1.35rem;
+    height: 1.35rem;
+    bottom: -12%;
+    border-radius: 50px;
+    background: rgba( 255, 255, 255, 0.55 );
+    backdrop-filter: blur( 8px );
+    -webkit-backdrop-filter: blur( 8px );
+    border-radius: 10px;
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.10),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.09), 
+    0px 6px 3px 0px rgba(0, 0, 0, 0.05), 
+    0px 10px 4px 0px rgba(0, 0, 0, 0.01), 
+    0px 15px 4px 0px rgba(0, 0, 0, 0.00);
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+
+#toggle_nav_button img {
+    width: 0.7rem;
+    transition: .3s ease-in-out;
+    user-select: none;
+}
+
+.navMobileWrapper{
+    display: none;
+}
+
+/* tinha feito essa animação em uma outra página vazia de testes e lá tava funcionando normal, aqui ela quebrou completamente */
+/* 
+.scrollWrapper {
+    position: relative;
+    border-radius: 30px;
+    border: 5px solid white;
+    background-color: white;
+    width: 25px;
+    height: 60px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+  
+.scrollWheel {
+    position: absolute;
+    width: 50%;
+    height: 30%;
+    align-self: flex-start;
+    background-color: #F05D5E;
+    border-radius: 30px;
+    animation: scroll-animation 3s linear infinite;
+}
+
+@keyframes scroll-animation {
+    20% {
+    height: 30%;
+    align-self: flex-start;
+    }
+    40% {
+    height: 100%;
+    align-self: flex-start;
+    }
+    45% {
+    height: 100%;
+    align-self: flex-end;
+    }
+    60% {
+    height: 30%;
+    align-self: flex-end;
+    }
+    80% {
+    height: 100%;
+    align-self: flex-end;
+    }
+    85% {
+    height: 100%;
+    align-self: flex-start;
+    }
+    100% {
+    height: 30%;
+    align-items: flex-start;
+    }
+} */
+
+header{
+    position: relative;
+}
+
+.headerUpper {
+    display: flex;
+    justify-content: center;
+    padding: 10rem 6rem 10rem 6rem;
+    position: relative;
+}
+
+.leftInfo,
+.rightInfo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.quemCell {
+    position: relative;
+    left: 6rem;
+    top: 3rem;
+}
+
+.leftInfo {
+    align-items: start;
+}
+
+.rightInfo {
+    align-items: end;
+    justify-content: end;
+}
+
+.headerUpper .textWrapper {
+    width: 50%;
+}
+
+
+.rightInfoWrapper .textWrapper{
+    width: 100%;
+}
+
+.rightInfoWrapper{
+    width: 60%;
+    text-align: end;
+}
+.headerUpper .leftInfo h1,
+.headerUpper .rightInfo h1 {
+    font-family: "Kanit";
+    font-weight: bold;
+    color: var(--color-white);
+    font-size: 4rem;
+    z-index: 2;
+}
+
+
+.headerUpper .leftInfo h4,
+.headerUpper .rightInfo h4 {
+    font-family: "Raleway";
+    font-weight: normal;
+    color: var(--color-white);
+    font-size: 1.3rem;
+}
+
+highlight {
+    color: #F05D5E !important;
+    font-weight: 700;
+}
+
+
+.btn-header {
+    background-color: var(--color-coral);
+    padding: .6rem 3rem;
+    border-radius: 5rem;
+    border: none;
+    color: var(--color-white);
+    font-family: "Kanit";
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: .4s ease-in-out;
+}
+
+.btn-header:hover {
+    background-color: #f47878;
+}
+
+.btnHeaderWrapper >:nth-child(1){
+    display: none;
+}
+
+.headerUpper .rightInfo .textWrapper>:nth-child(1){
+    display: none;
+}
+
+
+.btn-header button :hover {
+    -webkit-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    transform: scale(1.02);
+    color: var(--color-cobalto);
+    box-shadow: 0px 0px 7px #FDFF87;
+}
+
+
+.scroll-sign {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    bottom: 5vh;
+    right: 15vw;
+    transition: .4s ease-in-out;
+    opacity: 1;
+    user-select: none;
+}
+
+.scroll-sign img {
+    max-width: 55px;
+}
+
+.scroll-sign img:nth-child(1) {
+    animation: pulo 2s ease-in-out infinite;
+}
+
+.scroll-sign img:nth-child(2) {
+    animation: pulo 2s ease-in-out infinite;
+}
+
+@keyframes pulo {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-6px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+
+
+.headerNotebook {
+    position: absolute;
+    width: 40rem;
+    user-select: none;
+}
+
+.github-icon {
+    width: 24px;
+    position: absolute;
+    left: 6.5%;
+    bottom: 0;
+}
+
+
+.headerCell{
+    display: none;
+}
+
+.headerBottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+    gap: 2rem;
+}
+
+.headerBottom h1 {
+    font-family: "Kanit";
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: var(--color-white);
+    width: 55rem;
+    text-align: center;
+}
+
+.headerBottom h4 {
+    font-family: "Raleway";
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: var(--color-white);
+    width: 70rem;
+    text-align: center;
+}
+
+
+/* Quem somos css */
+.quemSomosWrapper {
+    display: flex;
+    padding: 2rem 5rem;
+    background-color: var(--color-white);
+}
+
+.quemSomosWrapper .leftInfo {
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+    gap: 6rem;
+}
+
+.quemSomosWrapper .leftInfo h1 {
+    font-family: "Kanit";
+    text-transform: uppercase;
+    color: var(--color-cobalto);
+    font-size: 5rem;
+}
+
+.quemSomosWrapper .infoWrapper {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+
+.quemSomosWrapper .infoWrapper img {
+    width: 10rem;
+}
+
+.text {
+    font-family: "Raleway";
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--color-gray);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.quemSomosWrapper .infoWrapper>:last-child {
+    text-align: end;
+}
+
+/* projetos css */
+.projetos {
+    position: relative;
+}
+
+.background-projetos {
+    width: 100%;
+    height: 200%;
+    position: relative;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    border: 6px solid #000000;
+}
+
+.cobalto {
+    border-color: var(--color-cobalto) !important;
+}
+
+.coral {
+    border-color: var(--color-coral) !important;
+}
+
+.circle1 {
+    width: 12rem;
+    height: 12rem;
+    border: 8px solid;
+    top: 100vh;
+}
+
+.circle2 {
+    top: 85vh;
+    left: -1vw;
+}
+
+.circle3 {
+    width: 18rem;
+    height: 18rem;
+    border: 10px solid;
+    right: 1vw;
+    top: 100vh;
+}
+
+.circle4 {
+    top: 90vh;
+    right: 2vw;
+}
+
+.circle5 {
+    width: 10vw;
+    height: 10vw;
+    border: 8px solid;
+    right: 2vw;
+    top: 30vh;
+}
+
+.projetosWrapper {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    padding: 2rem 5rem;
+    background-color: var(--color-white);
+}
+
+.projetosWrapper .leftInfo {
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+    gap: 7rem;
+}
+
+
+.projetosWrapper .centerInfo h1 {
+    font-family: "Kanit";
+    text-transform: uppercase;
+    color: var(--color-cobalto);
+    text-align: center;
+    font-size: 5rem;
+}
+
+.projetosWrapper .infoWrapper {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+    text-align: center;
+}
+
+.projetosWrapper .ProjetosInfoWrapper img {
+    align-items: center;
+    position: absolute;
+}
+
+.subtitle {
+    font-family: "Kanit";
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: var(--color-cobalto);
+}
+
+.projetoPrincipal {
+    overflow: hidden;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vw;
+    height: 90vh;
+    margin-top: 6vh;
+    margin-bottom: 2vh;
+    background-color: #FEFEFE;
+    border-radius: 10px;
+    box-shadow: 0px 5px 11px 0px rgba(0, 0, 0, 0.10), 0px 21px 21px 0px rgba(0, 0, 0, 0.09), 0px 46px 28px 0px rgba(0, 0, 0, 0.05), 0px 82px 33px 0px rgba(0, 0, 0, 0.01), 0px 129px 36px 0px rgba(0, 0, 0, 0.00);
+ }
+
+.projetoPrincipal img {
+    position: relative !important;
+    width: 100%;
+    height: 100%;
+    background-position: 200px;
+}
+
+.h1_mobile {
+    display: none;
+}
+
+carrosel
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.cell{
+    width: 33%;
+    height: 250px;
+    margin: 0 15px;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #D9D9D9;
+}
+
+.cell img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.divisoriaWrapper {
+    position: relative !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.dot {
+    border-radius: 0 !important;
+    transition: .3s ease-in-out !important;
+}
+
+.dot:hover {
+    background-color: var(--color-gray) !important;
+}
+
+.dot.is-selected {
+    transform: scale(1.4);
+    background-color: var(--color-coral) !important;
+}
+
+#fale-conosco {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    padding: 17vh 17vh 17vh 17vh;
+    background-color: #F5F5F5;
+}
+
+#fale-conosco h1 {
+    font-family: "Kanit";
+    text-transform: uppercase;
+    color: var(--color-cobalto);
+    font-size: 3rem;
+    text-align: center;
+}
+
+#fale-conosco p {
+    font-size: 1.5rem;
+    margin: 4vh 0;
+    text-align: center;
+    font-weight: 500;
+}
+
+#fale-conosco > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fale-conosco-inputs {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.fale-conosco-span {
+    font-family: "Raleway";
+    font-weight: 600;
+    color: var(--color-cobalto);
+    font-size: 1.5rem;
+}
+
+.fale-conosco-inputs input {
+    padding: 12px;
+    border-radius: 32px;
+    border: 2px solid transparent;
+    background-color: #d9d9d9;
+    transition: .3s ease-in-out;
+    font-family: "Raleway";
+}
+
+.fale-conosco-inputs input:focus, 
+.fale-conosco-comunicado textarea:focus {
+    border: 2px solid var(--color-cobalto);
+    outline: none;
+}
+
+.fale-conosco-comunicado {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+.fale-conosco-comunicado textarea {
+    resize: none;
+    padding: 12px;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    background-color: #d9d9d9;
+    transition: .3s ease-in-out;
+    font-family: "Raleway";
+}
+
+
+.fale-conosco-inputs input:hover,
+.fale-conosco-comunicado textarea:hover {
+    background-color: #d4d4d4;
+}
+
+#span_validar_nome,
+#span_validar_assunto,
+#span_validar_email_contato {
+    font-family: "Raleway" !important;
+    height: 0.8rem;
+    color: green;
+    margin: 4px 0;
+ 
+}
+
+.btn-fale-conosco {
+    color: #fff;
+    font-size: 1.8rem !important;
+    font-family: "Kanit";
+    font-weight: 600;
+    padding: 8px;
+    border-radius: 32px;
+    border: none;
+    background-color: #F05D5E;
+    font-size: 15px;
+    margin-top: 4vh;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.shake {
+    animation: shake 0.3s;
+  }
+  
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(10px); }
+    50% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+  }
+
+
+  
+.btn-fale-conosco:hover {
+    background-color: #f47878;
+}
+
+
+footer {
+    background-color: var(--color-cobalto);
+    padding: 50px 0;
+}
+
+.container-footer {
+    max-width: 1400px;
+    padding: 0 4%;
+    margin: auto;
+}
+
+.row-footer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.subdiv-footer {
+    width: 25%;
+    padding: 0 15px;
+}
+
+.subdiv-footer h4 {
+    font-size: 22px;
+    color: white;
+    margin-bottom: 20px;
+    font-weight: 500;
+    position: relative;
+    text-transform: uppercase;
+}
+
+
+.subdiv-footer ul {
+    list-style: none;
+}
+
+.subdiv-footer ul li {
+    margin: 10px 0;
+}
+
+.subdiv-footer ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: white;
+    text-decoration: none;
+    font-weight: 300;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.subdiv-footer ul li a:hover {
+    color: var(--color-coral);
+    padding-left: 15px;
+}
+
+.subdiv-footer .medias-socias {
+    margin-top: 30px;
+}
+
+.subdiv-footer .medias-socias a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    margin: 0 10px 10px 0;
+    text-decoration: none;
+    border-radius: 50%;
+    color: white;
+    border: 5px solid var(--color-coral);
+    transition: all 0.5s ease;
+}
+
+.subdiv-footer .medias-socias a i {
+    font-size: 20px;
+}
+
+.subdiv-footer .medias-socias a:hover {
+    color: var(--color-coral);
+    background-color: white;
+}
+
+.subdiv-footer .form-sub input {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    outline: none;
+    border: 1px solid white;
+    color: white;
+    background-color: #415aca;
+}
+
+.subdiv-footer .form-sub input::placeholder {
+    color: white;
+}
+
+.subdiv-footer .form-sub .cadastrar  {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 17px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-cobalto);
+    border-radius: 3px;
+    font-weight: bold;
+    background-color: white;
+}
+
+.form-sub .cadastrar hover{
+    color: var(--color-coral);
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+
+.form-sub img {
+    width: 15vw;
+    margin-left: 15%;
+    margin-top: 8%;
+}
+
+
+/* Responsivo */
+@media (max-width: 800px) {
+    .subdiv-footer {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width:600px) {
+    .subdiv-footer {
+        width: 100%;
+    }
+}
